@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'document', 'email', 'password',
+        'name', 'document', 'email', 'password', 'type_users_id',
     ];
 
     /**
@@ -27,4 +27,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function account()
+    {
+        return $this->hasOne('App\Models\Account');
+    }
+
+    public function type_user()
+    {
+        return $this->hasOne('App\Models\TypeUser');
+    }
+
 }

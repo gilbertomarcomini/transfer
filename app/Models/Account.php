@@ -15,7 +15,16 @@ class Account extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'type_account_id', 'value'
+        'user_id', 'value'
     ];
+
+    protected $attributes = [
+        'value' => 0,
+    ];
+
+    public function user()
+    {
+        return $this->hasOne('App\Models\User');
+    }
 
 }

@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/healthcheck', function () {
+    return response()->json(['response' => 200]);
+});
+
+Route::post('/transaction', ['uses' => 'TransactionController@transaction']);

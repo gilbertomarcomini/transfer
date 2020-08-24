@@ -16,12 +16,10 @@ class CreateAccountTable extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('type_account_id')->unsigned();
-            $table->decimal('value', 10, 2);
+            $table->decimal('value', 10, 2)->default(0);
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('type_account_id')->references('id')->on('type_accounts');
         });
     }
 
