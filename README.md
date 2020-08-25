@@ -79,3 +79,37 @@ Body:
     "messages": "Transação efetuada com sucesso."
 }
 ```
+
+------------
+
+###### Buscar usuários
+```bash
+# Endpoint
+[GET] /api/user/{user_id}
+
+# Response
+Status: 200
+{
+    "success": true,
+    "messages": [
+        {
+            "id": 1,
+            "name": "João Teste",
+            "document": "63448964000",
+            "email": "email_2@email.com",
+            "created_at": "2020-08-25 00:16:21",
+            "updated_at": "2020-08-25 00:16:21",
+            "deleted_at": null,
+            "type_users_id": 1,
+            "account": {
+                "id": 1,
+                "user_id": 1,
+                "value": "0.00",
+                "created_at": "2020-08-25 00:16:21",
+                "updated_at": "2020-08-25 00:16:21",
+                "deleted_at": null
+            }
+        }
+    ]
+}
+```

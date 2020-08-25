@@ -44,4 +44,11 @@ class UserRepository
         return $user->account->update();
     }
 
+    public function findUser($user_id)
+    {
+        return $this->user->where('id', $user_id)
+                        ->with('account')
+                        ->get();
+    }
+
 }

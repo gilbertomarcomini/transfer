@@ -13,5 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::get('/user/{user_id}', ['uses' => 'Auth\\RegisterController@findUser']);
 Route::post('/user/register', ['uses' => 'Auth\\RegisterController@register']);
 Route::post('/transaction', ['uses' => 'TransactionController@transaction']);

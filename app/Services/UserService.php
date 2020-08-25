@@ -64,4 +64,15 @@ class UserService
         }
     }
 
+    public function findUser($user_id)
+    {
+        $user = $this->userRepository->findUser($user_id);
+
+        if(!$user->isEmpty()){
+            return ["success" => true, "messages" => $user];
+        }
+
+        return ["success" => false, "message" => "User:$user_id not found"];
+    }
+
 }

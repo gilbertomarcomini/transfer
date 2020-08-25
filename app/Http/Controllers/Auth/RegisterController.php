@@ -31,4 +31,15 @@ class RegisterController extends Controller
         return response($result, 406);
     }
 
+    public function findUser($user_id)
+    {
+        $result = $this->userService->findUser($user_id);
+
+        if(array_get($result, "success")){
+            return response($result, 200);
+        }
+
+        return response($result, 404);
+    }
+
 }
