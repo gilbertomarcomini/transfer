@@ -16,9 +16,6 @@ php artisan migrate
 php artisan db:seed
 ```
 
-#### Métodos
-Abaixo o padrão de requisições para consumir serviços.
-
 #### Modelagem
 
 ![Modelagem](modelagem.png "Modelagem")
@@ -32,6 +29,9 @@ Abaixo o padrão de requisições para consumir serviços.
 - **Transactions:** registro de transações entre cliente e cliente/lojas
 - **Type_transactions:** tipos de transações (Default 1: seed)
 - **Type_users:** tipos de usuários (Default 1 e 2: seed)
+
+#### Métodos
+Abaixo o padrão de requisições para consumir serviços.
 
 ###### Registrar usuários
 ```bash
