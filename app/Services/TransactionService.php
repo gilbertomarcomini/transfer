@@ -37,16 +37,16 @@ class TransactionService
         $payee = $this->storeRepository->isPayee($datas['payee']);
 
         if(!$payer){
-            return ["success" => false, "messages" => "Usuário informado não pode realizar pagamentos ou não existe"];
+            return ["success" => false, "messages" => "User can't make payments or does not exist"];
         }
 
         if(!$payee){
-            return ["success" => false, "messages" => "Usuário informado não pode receber pagamentos ou não existe"];
+            return ["success" => false, "messages" => "user can't receive payments or does not exist"];
         }
 
-        if(!array_get($datas, "limitless", false) && $payer->account->value <= 0){
-            return ["success" => false, "messages" => "Usuário informado não possui saldo na conta"];
-        }
+        // if(!array_get($datas, "limitless", false) && $payer->account->value <= 0){
+        //     return ["success" => false, "messages" => "Usuário não possui saldo na conta"];
+        // }
 
         return $this->transactionRepository->transaction($payer, $payee, $datas["value"]);
     }

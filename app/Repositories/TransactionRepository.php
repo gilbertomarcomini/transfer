@@ -51,25 +51,25 @@ class TransactionRepository
             ];
 
             if(!$this->create($transaction)){
-                throw new \Exception("Erro ao registrar transação");
+                throw new \Exception("Error while registering transaction");
             }
             
             if(!$this->userRepository->debit($payer, $value)){
-                throw new \Exception("Erro ao retirar valor");
+                throw new \Exception("Error on debit");
             }
 
             if(!$this->userRepository->deposit($payee, $value)){
-                throw new \Exception("Erro ao depositar valor");
+                throw new \Exception("Error on deposit");
             }
 
             if(!$this->checkAuthorization()){
-                throw new \Exception("Não autorizado");
+                throw new \Exception("Not authorized");
             }
 
             $this->dispatchNotification($payee, $payer, $value);
 
             DB::commit();
-            return ["success" => true, "messages" => "Transação efetuada com sucesso."];
+            return ["success" => true, "messages" => "Transaction success"];
         } catch (\Exception $e) {
             DB::rollback();
             return ["success" => false, "messages" => $e->getMessage()];
