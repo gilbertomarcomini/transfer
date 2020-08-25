@@ -61,7 +61,8 @@ Body:
 ###### Transações
 ```bash
 # Endpoint
-[POST] /api/public/transaction
+[POST] /api/transaction
+[POST] /transaction
 
 # Payload
 {
