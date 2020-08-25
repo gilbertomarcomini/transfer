@@ -19,6 +19,20 @@ php artisan db:seed
 #### Métodos
 Abaixo o padrão de requisições para consumir serviços.
 
+#### Modelagem
+
+![Modelagem](modelagem.png "Modelagem")
+
+- **Accounts:** contas de usuários
+- **Failed_jobs:** registros de jobs falhadas para serem reprocessadas
+- **Jobs:** registros de jobs asyncronas (Notificações)
+- **Migrations:** laravel config
+- **Password_resets:** laravel config
+- **Users:** registros de usuários: cliente e lojas
+- **Transactions:** registro de transações entre cliente e cliente/lojas
+- **Type_transactions:** tipos de transações (Default 1: seed)
+- **Type_users:** tipos de usuários (Default 1 e 2: seed)
+
 ###### Registrar usuários
 ```bash
 # Endpoint
